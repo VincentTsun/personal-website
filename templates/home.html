@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Vincent Tsun{% endblock %}
+{% block content %}
+<!-- hero section -->
+<section style="background-color:rgb(221, 221, 221)">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-8 d-flex flex-column justify-content-center">
+                <h4>I am</h4>
+                <h1>Vincent Tsun</h1>
+                <P>Coder and analyst Coder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analyst</P>
+                <div>
+                    <a class="btn btn-md btn-primary" href="/portfolio" role="button">My Projects</a>
+                </div>
+            </div>
+            <div class="col d-flex align-self-center justify-content-center">
+                <img src="{{url_for('static',filename='portrait.jpg')}}" style="width:auto;height:auto;max-width:100%;">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container pt-3">
+    <h2>Personal Details</h2>
+    <p>Coder and analyst Coder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analyst</p>
+</section>
+<br/>
+<!-- container to contain the rest of the content -->
+<div class="container">
+    <!-- horizontal cards for posts-->
+    <div class="row py-5">
+        <h2>Latest projects</h2>
+        {%for post in posts[:3] %}
+        <div class="col-12 col-md-4 col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="d-flex justify-content-center">
+                    <img class="card-img-top mt-5 w-50" src="{{ url_for('static', filename='python.png') }}" alt="python icon">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    {% if post.text | length >100 %}
+                        <p class="card-text" >{{post.text[0:100]+'...'}}</p>
+                    {% else %}
+                        <p class="card-text" >{{post.text}}</p>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="row-sm-12">
+                    <a href="#" class="btn btn-sm btn-primary">Go to post</a>
+                    </div>
+                    {{post.date_created}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

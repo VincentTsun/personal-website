@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<br/>
+<div class="container">
+    <!-- back button-->
+    <div align="left">
+        <a href="/portfolio">
+            <button type="button" class="btn btn-outline-secondary btn-sm">
+                <i class="bi bi-backspace-fill"></i> Back</button>
+        </a>
+    </div>
+    <h1 align="center">{{user.username}}</h1>
+    <!-- form for posts -->
+    <form method="POST" novalidate class="needs-validation">
+        <div class="form-floating mb-4">
+            <textarea 
+                class="form-control"
+                id="post_title"
+                name="post_title"
+                style="resize: none;"
+                placeholder="title"
+                required  
+            ></textarea>
+            <label for="post_title">Post Title</label>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+            <div class="invalid-tooltip">
+                Please enter a title.
+            </div>
+        </div>
+        <div class="form-floating">
+            <textarea 
+            class="form-control" 
+            id="post" 
+            name="post" 
+            style="resize: none;"
+            placeholder="content"
+            required
+            ></textarea>
+            <label for="post">Content</label>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+            <div class="invalid-tooltip">
+                Please enter at least one character.
+            </div>
+        </div>
+        <br/>
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Post</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{%block title %}test2{%endblock%}
+{% block content %}
+<section class="text-light" style="background-color:rgb(102, 102, 102)">
+  <div class="container pt-5">
+      <div class="row">
+        <div class="col-8 d-flex flex-column justify-content-center">
+          <h5>I am</h5>
+          <h1>Vincent Tsun</h1>
+          <P>Coder and analyst Coder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analyst</P>
+        </div>
+        <div class="col d-flex align-self-center justify-content-center">
+          <img src="{{url_for('static',filename='python.png')}}" style="width:auto;height:auto;max-width:100%;">
+        </div>
+      </div>
+  </div>
+  <div align="center">
+    <a class="btn btn-danger" href="/portfolio" role="button">Click Me</a>
+  </div>
+  <div align="center" class="pt-3">
+    <i class="fa fa-angle-double-down blink"></i>
+  </div>
+</section>
+
+<section class="text-light pt-5" style="background-color:rgb(102, 102, 102)">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col">
+        <div>
+          <h4>About this website</h4>
+          <p>This website was coded in HTML, CSS, and Javascript with bootstrap 5 for its front-end development, and Python with Flask for its back-end development.</p>
+          <p>The code can be found 
+          <a href="#">here</a>.</p>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-end pe-5">
+      <div>
+        <h4>Follow me</h4>
+        <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
