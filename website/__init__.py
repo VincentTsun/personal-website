@@ -4,6 +4,7 @@ from os import path, getenv
 from flask_login import LoginManager
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from dotenv import load_dotenv
 
 
 db = SQLAlchemy()
@@ -11,7 +12,8 @@ DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+    load_dotenv()
+    app.config['SECRET_KEY'] = getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 

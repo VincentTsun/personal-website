@@ -8,7 +8,7 @@ views = Blueprint("views",__name__)
 
 @views.route('/',methods=['GET','POST'])
 def home():
-    admin = User.query.filter_by(username='Vincent').first()
+    admin = User.query.filter_by(is_admin=True).first()
     posts = Post.query.filter_by(author_id=admin.id).order_by(Post.date_created.desc()).all()
     return render_template("home.html", user=current_user, posts=posts )
 
@@ -51,6 +51,6 @@ def test2():
 
 @views.route("/portfolio")
 def portfolio():
-    admin = User.query.filter_by(username='Vincent').first()
+    admin = User.query.filter_by(is_admin=True).first()
     posts = Post.query.filter_by(author_id=admin.id).order_by(Post.date_created.desc()).all()
     return render_template("portfolio.html", user=current_user, posts=posts)
