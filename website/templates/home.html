@@ -2,7 +2,7 @@
 {% block title %}Vincent Tsun{% endblock %}
 {% block content %}
 <!-- hero section -->
-<section style="background-color:rgb(247, 243, 227)">
+<section class="bg-secondary">
     <div class="container py-5">
         <div class="row">
             <div class="col-8 d-flex flex-column justify-content-center">
@@ -10,20 +10,34 @@
                 <h1>Vincent Tsun</h1>
                 <P>Coder and analyst Coder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analyst</P>
                 <div>
-                    <a class="btn btn-md btn-primary" href="/portfolio" role="button">My Projects</a>
+                    <a class="btn btn-md btn-primary" href="/portfolio" role="button"><strong class="text-light">My Projects</strong></a>
                 </div>
             </div>
             <div class="col d-flex align-self-center justify-content-center">
-                <img src="{{url_for('static',filename='portrait.jpg')}}" style="width:auto;height:auto;max-width:100%;">
+                <img src="../static/myportrait.jpg" class="rounded-3" style="width:auto;height:auto;max-width:100%;">
             </div>
         </div>
     </div>
 </section>
-<section class="container pt-3">
-    <h2>Personal Details</h2>
-    <p>Coder and analyst Coder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analystCoder and analyst</p>
+<section class="container py-5">
+    <h1>PERSONAL DETAILS</h1>
+    <div class="d-flex">
+        <div class="vr me-3 border border-primary"></div>
+        <blockquote class="generic-blockquote">
+            <br/>
+            <p>
+            A few interesting things about me. I love to read science fiction (my favorite is Frank Herbert's Dune). I am also an avid gamer. I love to play competitive strategy games and first-person shooters. Lastly, I love learning. Every day I push myself to learn something new, whether that be about machine learning, software engineering, or miscellaneous facts about the universe.
+            </p>
+            <p>
+            On top of recently getting married and graduating with a masters in computer science from UT Dallas, I also recently started working as a senior data scientist at Capital One. My work mainly revolves around utilizing natural language processing to build a more intelligent customer experience.
+            </p>
+        </blockquote>
+    </div>
+    <div class="py-2">
+        <a class="btn btn-primary" href="#"><strong class="text-light">About Me</strong></a>
+    </div>
 </section>
-<br/>
+<hr/>
 <!-- container to contain the rest of the content -->
 <div class="container">
     <!-- horizontal cards for posts-->
@@ -33,7 +47,7 @@
         <div class="col-12 col-md-4 col-lg-4 d-flex align-items-stretch">
             <div class="card">
                 <div class="d-flex justify-content-center">
-                    <img class="card-img-top mt-5 w-50" src="{{ url_for('static', filename='python.png') }}" alt="python icon">
+                    <img class="card-img-top mt-5 w-50" src="../static/python.png" alt="python icon">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{post.title}}</h5>

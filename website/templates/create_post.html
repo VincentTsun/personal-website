@@ -1,18 +1,25 @@
-{% extends "base.html" %} 
+{% extends "base_banner.html" %} 
 
-{% block title %}Blog{% endblock %}
+{% block title %}Create Post{% endblock %}
 
-{% block content %}
+{% block banner_header %}
+<h1>Create Post</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page">Create Post</li>
+{% endblock %}
+
+{% block main_content %}
 <br/>
 <div class="container">
     <!-- back button-->
-    <div align="left">
+    <div align="left" class="pb-4">
         <a href="/portfolio">
-            <button type="button" class="btn btn-outline-secondary btn-sm">
+            <button type="button" class="btn btn-outline-primary btn-sm">
                 <i class="bi bi-backspace-fill"></i> Back</button>
         </a>
     </div>
-    <h1 align="center">{{user.username}}</h1>
     <!-- form for posts -->
     <form method="POST" novalidate class="needs-validation">
         <div class="form-floating mb-4">
@@ -37,7 +44,7 @@
             class="form-control" 
             id="post" 
             name="post" 
-            style="resize: none;"
+            style="resize: none; height:200px"
             placeholder="content"
             required
             ></textarea>
@@ -55,4 +62,5 @@
         </div>
     </form>
 </div>
+<br/>
 {% endblock %}
