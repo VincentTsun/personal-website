@@ -26,7 +26,7 @@
   </head>
   <body class="d-flex flex-column min-vh-100 bg-light">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar sticky-top shadow-sm navbar-expand-lg navbar-light bg-light">
       
       <a class="navbar-brand ps-5 fs-3 h1" href="/">V. Tsun</a>
       
@@ -43,6 +43,7 @@
         <div class="navbar-nav ms-auto pe-3">
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="portfolio" href="/portfolio">Portfolio</a>
+          <a class="nav-item nav-link" id="about" href="/about">About</a>
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" id="create_post" href="/create-post">Create Post</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
@@ -82,7 +83,7 @@
     {% block content %} {% endblock %}
 
     <!-- footer -->
-    <footer class="mt-auto py-5" style="background-color:rgb(168, 168, 168)">
+    <footer class="mt-auto pt-5 pb-4" style="background-color:rgb(168, 168, 168)">
       <div class="container">
         <div class="row">
           <div class="col-6 col-md-8">
@@ -103,7 +104,7 @@
                   <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
                 </a>
               </div>
-              <div class="col-3">
+              <div class="col">
                 <a href="https://github.com/VincentTsun" target="_blank" class="text-dark">
                   <i class="bi bi-github" style="font-size: 2rem;"></i>
                 </a>

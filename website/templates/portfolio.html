@@ -13,33 +13,43 @@
 {% block main_content %}
 <br/>
 <div class="container">
-  <div id="posts">
-    <br/>
+  <section id="posts">
     {% for post in posts %}
-    <div class="card border-dark">
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h4>{{post.title}}</h4>
-        {% if user.id == post.author_id %}
-        <div class="dropdown float-end">
-          <button
-            type="button"
-            class="btn btn-sm btn-primary dropdown-toggle"
-            data-bs-toggle="dropdown"
-          ></button>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="/delete-post/{{post.id}}" class="dropdown-item">Delete</a>
-            </li>
-          </ul>
+    <div class="row d-flex py-4">
+      <div class="d-flex flex-col justify-content-center col-sm-2">
+        <img src="../static/python.png" style="width:auto;height:auto;max-width:100%;" alt="python icon" >
+      </div>
+      <div class="col d-flex flex-column">
+        <div class="row">
+          <div class="col">
+            <h4>{{post.title}}</h4>
+          </div>
+          <div class="col">
+            {% if user.id == post.author_id %}
+            <div class="dropdown float-end">
+              <button type="button" class="btn btn-sm btn-primary text-light dropdown-toggle" data-bs-toggle="dropdown"></button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/delete-post/{{post.id}}" class="dropdown-item">Delete</a>
+                </li>
+              </ul>
+            </div>
+            {% endif %}
+          </div>
         </div>
-        {% endif %}
+        <div class="row">
+          <p>{{post.text}}</p>
+        </div>
+        <div class="row mt-auto">
+          <p>{{post.date_created}}</p>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="card-text">{{post.text}}</div>
-      </div>
-      <div class="card-footer text-muted">{{post.date_created}}</div>
     </div>
-    <br/> {% endfor %}
-  </div>
+    {% if post != posts[-1] %}
+      <hr/>
+    {% endif %}
+    {% endfor %}
+  </section>
 </div>
+<br/>
 {% endblock %}

@@ -51,14 +51,14 @@
   <div id="posts">
     <br/>
     {% for post in posts %}
-    <div class="card border-dark">
+    <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h4>{{post.title}}</h4>
         {% if user.id == post.author_id %}
         <div class="dropdown float-end">
           <button
             type="button"
-            class="btn btn-sm btn-primary dropdown-toggle"
+            class="btn btn-sm btn-primary text-light dropdown-toggle"
             data-bs-toggle="dropdown"
           ></button>
           <ul class="dropdown-menu">
@@ -78,25 +78,42 @@
   </div>
 </div>
 
-<section class="text-light pt-5" style="background-color:rgb(102, 102, 102)">
-  <div class="container">
-    <div class="row d-flex">
+<div class="container">
+  <section id="posts">
+    {% for post in posts %}
+    <div class="row py-4">
+      <div class="d-flex flex-col justify-content-center col-2">
+        <img src="../static/python.png" style="width:auto;height:auto;max-width:50%;" alt="python icon" >
+      </div>
       <div class="col">
-        <div>
-          <h4>About this website</h4>
-          <p>This website was coded in HTML, CSS, and Javascript with bootstrap 5 for its front-end development, and Python with Flask for its back-end development.</p>
-          <p>The code can be found 
-          <a href="#">here</a>.</p>
+        <div class="row">
+          <div class="col">
+            <h4>{{post.title}}</h4>
+          </div>
+          <div class="col">
+            {% if user.id == post.author_id %}
+            <div class="dropdown float-end">
+              <button type="button" class="btn btn-sm btn-primary text-light dropdown-toggle" data-bs-toggle="dropdown"></button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/delete-post/{{post.id}}" class="dropdown-item">Delete</a>
+                </li>
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <p>{{post.text}}</p>
         </div>
       </div>
-      <div class="col d-flex justify-content-end pe-5">
-      <div>
-        <h4>Follow me</h4>
-        <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
-      </div>
     </div>
-    </div>
-  </div>
-</section>
+    {% if post != posts[-1] %}
+      <hr/>
+    {% endif %}
+    {% endfor %}
+  </section>
+</div>
+
 {% endblock %}
 

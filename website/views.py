@@ -56,3 +56,7 @@ def portfolio():
     admin = User.query.filter_by(is_admin=True).first()
     posts = Post.query.filter_by(author_id=admin.id).order_by(Post.date_created.desc()).all()
     return render_template("portfolio.html", user=current_user, posts=posts)
+
+@views.route("/about")
+def about():
+    return render_template("about.html", user=current_user)
