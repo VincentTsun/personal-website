@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, nullable=False)
+    description = db.Column(db.String(100), default='NA')
     text = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     author_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"),nullable=False)
@@ -39,6 +40,7 @@ class MyAdminIndexView(AdminIndexView):
         else:
             return abort(403)
 
+#anonymous users setup
 class Anonymous(AnonymousUserMixin):
   def __init__(self):
     self.username = 'Guest'

@@ -2,7 +2,7 @@
 {% block title %}Vincent Tsun{% endblock %}
 {% block content %}
 <!-- hero section -->
-<section class="bg-light">
+<section class="bg-secondary">
     <div class="container py-5">
         <div class="row">
             <div class="col-8 d-flex flex-column justify-content-center">
@@ -34,7 +34,7 @@
         </blockquote>
     </div>
     <div class="py-2">
-        <a class="btn btn-primary" href="#"><strong class="text-light">About Me</strong></a>
+        <a class="btn btn-primary" href="/about"><strong class="text-light">About Me</strong></a>
     </div>
 </section>
 <hr/>
@@ -47,18 +47,18 @@
         </div>
         {%for post in posts[:3] %}
         <div class="col-12 col-md-4 col-lg-4 d-flex align-items-stretch">
-            <div class="card">
+            <div class="card h-100">
                 <div class="d-flex justify-content-center">
                     <img class="card-img-top mt-5 w-50" src="../static/python.png" alt="python icon">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{post.title}}</h5>
                     {% if post.text | length >100 %}
-                        <p class="card-text" >{{post.text[0:100]+'...'}}</p>
+                        <p class="card-text" >{{post.description[0:100]+'...'}}</p>
                     {% else %}
-                        <p class="card-text" >{{post.text}}</p>
+                        <p class="card-text" >{{post.description}}</p>
                     {% endif %}
-                    <a href="#" class="stretched-link"></a>
+                    <a href="{{ url_for('views.post', id=post.id) }}" class="stretched-link"></a>
                 </div>
                 <div class="card-footer text-muted">
                     

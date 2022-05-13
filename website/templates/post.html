@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+
+{% block title %}Post{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div align="left">
+        <a href="/portfolio">
+            <button type="button" class="btn btn-outline-dark btn-sm">
+                <i class="bi bi-backspace-fill"></i> Back</button>
+        </a>
+    </div>
+    <div class="row">
+        <h1>{{post.title}}</h1>
+    </div>
+    <div class="row">
+        <h2 class="text-muted">{{post.description}}</h2>
+    </div>
+    <div class="row pb-3">
+        <ul class="list-unstyled">
+            <li class="text-muted">
+                {{post.user.username}}
+            </li>
+            <li class="text-muted">
+                {{post.date_created}}
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        {{post.text | safe}}
+    </div>
+</div>
+
+{% endblock %}

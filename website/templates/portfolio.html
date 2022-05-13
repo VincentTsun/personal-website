@@ -17,12 +17,14 @@
     {% for post in posts %}
     <div class="row d-flex py-4">
       <div class="d-flex flex-col justify-content-center col-sm-2">
-        <img src="../static/python.png" style="width:auto;height:auto;max-width:100%;" alt="python icon" >
+        <a href="{{ url_for('views.post', id=post.id) }}" class="text-dark text-decoration-none">
+          <img src="../static/python.png" class="img-fluid" alt="python icon">
+        </a>
       </div>
       <div class="col d-flex flex-column">
         <div class="row">
           <div class="col">
-            <h4>{{post.title}}</h4>
+            <a href="{{ url_for('views.post', id=post.id) }}" class="text-dark text-decoration-none"><h3>{{post.title}}</h3></a>
           </div>
           <div class="col">
             {% if user.id == post.author_id %}
@@ -38,7 +40,7 @@
           </div>
         </div>
         <div class="row">
-          <p>{{post.text}}</p>
+          <p>{{post.description}}</p>
         </div>
         <div class="row mt-auto">
           <p>{{post.date_created}}</p>
