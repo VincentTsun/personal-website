@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
 #post database
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.Text, nullable=False)
+    title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(100), default='NA')
     text = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
