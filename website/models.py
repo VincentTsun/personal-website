@@ -22,7 +22,8 @@ class Post(db.Model):
     description = db.Column(db.String(100), default='NA')
     text = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    author_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"),nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+
 
 #admin home page view
 class MyModelView(ModelView):

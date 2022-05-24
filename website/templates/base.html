@@ -53,8 +53,6 @@
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" id="create_post" href="/create-post">Create Post</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-          {% else %}
-          <a class="nav-item nav-link" id="login" href="/login">Login</a>
           {% endif %}
           {% if user.is_admin == True %}
           <a class="nav-item nav-link" id="admin" href="/admin">Admin</a>
@@ -149,7 +147,7 @@
     </script>
     <script
       type="text/javascript"
-      src="{{  url_for('static', filename='index.js')  }}">
+      src="{{  url_for('static', filename='javascript/index.js')  }}">
     </script>
   </body>
 </html>
