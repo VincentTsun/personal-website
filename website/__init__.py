@@ -4,6 +4,7 @@ from os import path, getenv
 from flask_login import LoginManager
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from dotenv import load_dotenv
 
 
 db = SQLAlchemy()
@@ -11,6 +12,7 @@ DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
+    load_dotenv()
     app.config['SECRET_KEY'] = getenv("SECRET_KEY",'Optional default value')
     app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DATABASE_URI")
     db.init_app(app)
@@ -24,7 +26,7 @@ def create_app():
     from .models import User, Post, MyModelView, MyAdminIndexView
 
     #for internal testing only
-    create_database(app)
+    #create_database(app)
     
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -41,7 +43,7 @@ def create_app():
     return app
 
 #for internal testing only
-def create_database(app):
+#def create_database(app):
     if not path.exists('website/'+DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
