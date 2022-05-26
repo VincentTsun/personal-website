@@ -7,8 +7,11 @@ views = Blueprint("views",__name__)
 
 @views.route('/',methods=['GET','POST'])
 def home():
-    admin = User.query.filter_by(is_admin=True).first()
-    posts = Post.query.filter_by(author_id=admin.id).order_by(Post.date_created.desc()).all()
+    try:
+        admin = User.query.filter_by(is_admin=True).first()
+        posts = Post.query.filter_by(author_id=admin.id).order_by(Post.date_created.desc()).all()
+    except:
+        posts = Post.query.all()
     return render_template("home.html", user=current_user, posts=posts)
 
 @views.route('/create-post',methods=['GET','POST'])
