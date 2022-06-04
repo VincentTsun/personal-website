@@ -31,6 +31,33 @@ def create_post():
             flash('Post published!', category='success')
     return render_template("create_post.html", user=current_user)
 
+@views.route('/edit-post/<id>', methods=['GET','POST'])
+@login_required
+def edit_post(id):
+    post = Post.query.filter_by(id=id).first()
+    form = Post()
+    if not post:
+        flash("Post does not exist.", category='error')
+    elif current_user.id != post.author_id:
+        flash('You do not have permission to edit this post.', category='error')
+    else:
+        if request.method == 'GET':
+            form.title = post.title
+            form.description = post.description
+            form.text = post.text
+            return render_template('edit_post.html', user=current_user, post=form)
+        
+        elif request.method == 'POST':
+            post.title = request.form.get('post_title')
+            post.description = request.form.get('post_desc')
+            post.text = request.form.get('post')
+            
+            db.session.add(post)
+            db.session.commit()
+            flash('Post edited.', category='success')
+            return redirect(url_for('views.post', id=post.id))
+
+
 
 @views.route('/delete-post/<id>')
 @login_required

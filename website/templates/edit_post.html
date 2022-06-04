@@ -1,0 +1,49 @@
+{% extends "base_banner.html" %} 
+
+{% block title %}Edit Post{% endblock %}
+
+{% block banner_header %}
+<h1>Edit Post</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+{% endblock %}
+
+{% block main_content %}
+<br/>
+<div class="container pb-5">
+    <!-- back button-->
+    <div align="left" class="pb-4">
+        <a href="/portfolio">
+            <button type="button" class="btn btn-outline-dark btn-sm">
+                <i class="bi bi-backspace-fill"></i> Back</button>
+        </a>
+    </div>
+    <!-- form for posts -->
+    <form method="POST" novalidate class="needs-validation">
+        <div class="form-floating mb-4">
+            <input class="form-control" id="post_title" name="post_title" style="resize: none;" placeholder="title" value="{{ post.title }}" required></input>
+            <label for="post_title">Post Title</label>
+            <div class="valid-tooltip">Looks good!</div>
+            <div class="invalid-tooltip">Please enter a title.</div>
+        </div>
+        <div class="form-floating mb-4">
+            <input class="form-control" rows="2" id="post_desc" name="post_desc" style="resize: none; height:100%;" placeholder="desc" value="{{ post.description }}" required></input>
+            <label for="post_title">Post Description</label>
+            <div class="valid-tooltip">Looks good!</div>
+            <div class="invalid-tooltip">Please enter description.</div>
+        </div>
+        <div>
+            <textarea class="form-control" id="summernote" name="post" required></textarea>
+            <div class="valid-tooltip">Looks good!</div>
+            <div class="invalid-tooltip">Please enter at least one character.</div>
+        </div>
+        <br/>
+        <div align="left">
+            <button type="submit" class="btn btn-lg btn-primary"><strong class="text-light">Post</strong></button>
+        </div>
+    </form>
+</div>
+<br/>
+{% endblock %}

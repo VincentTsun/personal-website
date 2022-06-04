@@ -14,6 +14,8 @@ def create_app():
     app = Flask(__name__)
     load_dotenv()
     app.config['SECRET_KEY'] = getenv("SECRET_KEY",'Optional default value')
+    #for internal testing only
+    #app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DATABASE_URI")
     db.init_app(app)
 
