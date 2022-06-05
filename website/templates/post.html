@@ -4,15 +4,18 @@
 
 {% block content %}
 <div class="container py-5">
-    <div align="left">
+    <div>
         <a href="/portfolio">
             <button type="button" class="btn btn-outline-dark btn-sm">
                 <i class="bi bi-backspace-fill"></i> Back</button>
         </a>
-        <a href="/edit-post/{{post.id}}">
-            <button type="button" class="btn btn-outline-dark btn-sm">Edit</button>
+    </div>
+    {% if user.id == post.author_id %}
+    <div class="py-2"><a href="/edit-post/{{post.id}}">
+            <button type="button" class="btn btn-sm btn-outline-dark"><strong>Edit</strong></button>
         </a>
     </div>
+    {% endif %}
     <div class="row">
         <h1>{{post.title}}</h1>
     </div>
@@ -33,5 +36,4 @@
         {{post.text | safe}}
     </div>
 </div>
-
 {% endblock %}

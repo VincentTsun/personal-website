@@ -15,7 +15,7 @@
 <div class="container pb-5">
     <!-- back button-->
     <div align="left" class="pb-4">
-        <a href="/portfolio">
+        <a href="/post/{{post.id}}">
             <button type="button" class="btn btn-outline-dark btn-sm">
                 <i class="bi bi-backspace-fill"></i> Back</button>
         </a>
@@ -35,7 +35,7 @@
             <div class="invalid-tooltip">Please enter description.</div>
         </div>
         <div>
-            <textarea class="form-control" id="summernote" name="post" required></textarea>
+            <textarea class="form-control" id="summernote" name="post" required><p>{{post.text}}</p></textarea>
             <div class="valid-tooltip">Looks good!</div>
             <div class="invalid-tooltip">Please enter at least one character.</div>
         </div>

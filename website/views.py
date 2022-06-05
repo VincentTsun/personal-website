@@ -45,6 +45,7 @@ def edit_post(id):
             form.title = post.title
             form.description = post.description
             form.text = post.text
+            form.id = post.id
             return render_template('edit_post.html', user=current_user, post=form)
         
         elif request.method == 'POST':
