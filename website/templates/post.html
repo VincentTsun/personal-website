@@ -28,7 +28,7 @@
                 {{post.user.username}}
             </li>
             <li class="text-muted">
-                {{post.date_created}}
+                {{post.date_created.strftime('%Y-%m-%d %T')}}
             </li>
         </ul>
     </div>
